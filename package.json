@@ -1,0 +1,20 @@
+{
+  "name": "analyzer-api",
+  "version": "0.0.0",
+  "private": true,
+  "license": "MIT",
+  "main": "src/app.ts",
+  "scripts": {
+    "build": "tsc -p tsconfig.json",
+    "start": "node build/app.js"
+  },
+  "dependencies": {
+    "fastify": "^4.26.1",
+    "mongoose": "^8.2.0"
+  },
+  "devDependencies": {
+    "@types/node": "^20.11.20",
+    "dotenv": "^16.4.5",
+    "typescript": "^5.3.3"
+  }
+}
