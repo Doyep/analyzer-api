@@ -1,13 +1,16 @@
+import { fastifyCors } from '@fastify/cors'
 import 'dotenv/config'
-import fastify, { FastifyListenOptions } from 'fastify'
-import mongoose from 'mongoose'
+import { fastify, FastifyListenOptions } from 'fastify'
 import { userRoute } from './user/user.route'
+
+import mongoose from 'mongoose'
 
 if (!process.env.DB_URI) throw new Error('API_URI is not defined')
 if (!process.env.FASTIFY_PORT) throw new Error('FASTIFY_PORT is not defined')
 if (!process.env.CORS_ORIGINS) throw new Error('CORS_ORIGINS is not defined')
 
 const server = fastify({ logger: true })
+  .register(fastifyCors, { origin: process.env.CORS_ORIGINS })
   .register(userRoute)
 
 // graceful shutdown
